@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import { ref, onMounted } from 'vue'
+// import { ref, onMounted } from 'vue'
 import { useAuthStore } from '~/store/auth'
 
 interface User {
@@ -8,16 +8,17 @@ interface User {
 }
 
 const body = ref<User>({
-  email: 'duckhanh9117ptx@gmail.com',
+  email: 'khuatduckhanh1997@gmail.com',
   password: '12345',
 })
 
 const useAuth = useAuthStore()
+const { userInfo } = storeToRefs(useAuth)
 
-const { userInfo } = useAuth
-console.log(12123123123, userInfo);
-function loginSubmit() {
-  useAuth.login(body.value)
+async function loginSubmit() {
+  console.log(20, userInfo);
+  
+  await useAuth.login(body.value)
 }
 </script>
 
@@ -26,9 +27,7 @@ function loginSubmit() {
     <v-img
       class="mx-auto my-6"
       max-width="228"
-      src="https://cdn.vuetifyjs.com/docs/images/logos/vuetify-logo-v3-slim-text-light.svg"
-    ></v-img>
-
+      src="https://itviec.com/rails/active_storage/representations/proxy/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBMU04RHc9PSIsImV4cCI6bnVsbCwicHVyIjoiYmxvYl9pZCJ9fQ==--5a1107d4b7e1d971866ea9df370182f62b79eb19/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdCem9MWm05eWJXRjBTU0lJY0c1bkJqb0dSVlE2RkhKbGMybDZaVjkwYjE5c2FXMXBkRnNIYVFJc0FXa0NMQUU9IiwiZXhwIjpudWxsLCJwdXIiOiJ2YXJpYXRpb24ifX0=--15c3f2f3e11927673ae52b71712c1f66a7a1b7bd/agoda-logo.png"    ></v-img>
     <v-card
       class="mx-auto pa-12 pb-8"
       elevation="8"
