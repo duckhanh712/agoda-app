@@ -1,7 +1,7 @@
 <script lang="ts" setup>
-import { useAuthStore } from '~/store/auth'
-const authStore = useAuthStore()
-const { userInfo } = storeToRefs(authStore)
+import { usePropertyStore} from '~/store/property'
+const propertyStore = useAuthStore()
+const { property } = storeToRefs(propertyStore)
 const items = [
   {
     title: 'Home',
